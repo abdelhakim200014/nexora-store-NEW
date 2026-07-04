@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -68,7 +68,7 @@
     </head>
 <body class="text-gray-800 pb-24 relative">
 
-    <a href="https://wa.me/213555555555" target="_blank" class="fixed bottom-20 left-4 md:bottom-6 md:left-6 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl z-50 hover:bg-green-600 transition transform hover:scale-110 flex items-center justify-center">
+    <a href="https://wa.me/213541607271" target="_blank" class="fixed bottom-20 left-4 md:bottom-6 md:left-6 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl z-50 hover:bg-green-600 transition transform hover:scale-110 flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 1.792 6.327L0 24l5.856-1.536A11.95 11.95 0 0 0 11.944 24c6.627 0 12-5.373 12-12s-5.373-12-12-12zm.056 21.688c-1.874 0-3.69-.5-5.28-1.45l-.379-.224-3.921 1.028 1.045-3.824-.246-.392A9.68 9.68 0 0 1 2.31 12c0-5.353 4.357-9.712 9.71-9.712 2.593 0 5.03 1.01 6.862 2.842A9.65 9.65 0 0 1 21.72 12c0 5.353-4.357 9.712-9.71 9.712zM17.3 14.89c-.276-.138-1.63-.804-1.882-.896-.251-.092-.435-.138-.619.138-.184.276-.71 .896-.87 1.08-.16.184-.322.207-.598.069-.276-.138-1.164-.429-2.217-1.371-.818-.732-1.37-1.637-1.531-1.913-.16-.276-.017-.426.121-.564.125-.125.276-.322.414-.483.138-.161.184-.276.276-.46.092-.184.046-.345-.023-.483-.069-.138-.619-1.494-.848-2.046-.222-.538-.448-.465-.619-.474-.16-.008-.345-.008-.529-.008-.184 0-.483.069-.736.345-.253.276-.966.942-.966 2.298 0 1.356.989 2.667 1.126 2.851.138.184 1.943 2.966 4.704 4.156.657.283 1.169.452 1.569.578.66.208 1.261.178 1.737.108.536-.079 1.63-.666 1.86-1.31.23-.643.23-1.195.161-1.31-.069-.115-.253-.184-.529-.322z"/></svg>
     </a>
 
@@ -368,6 +368,13 @@
     </div>
 
     <script>
+        // ==========================================
+        // تعريف Supabase بشكل صحيح وفي النطاق العام (خارج أي دالة)
+        // ==========================================
+        const supabaseUrl = 'https://ywiqscllcgmwgnrqvkft.supabase.co';
+        const supabaseKey = 'sb_publishable_XUJFnK7CEM6gfNme28shlw_BdbWnw6V';
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
         const shippingRates = {
             "1": { name: "1 - أدرار", home: 1400, desk: 970 }, "2": { name: "2 - الشلف", home: 750, desk: 520 }, "3": { name: "3 - الأغواط", home: 950, desk: 670 }, "4": { name: "4 - أم البواقي", home: 800, desk: 520 }, "5": { name: "5 - باتنة", home: 800, desk: 520 }, "6": { name: "6 - بجاية", home: 800, desk: 520 }, "7": { name: "7 - بسكرة", home: 950, desk: 670 }, "8": { name: "8 - بشار", home: 1050, desk: 720 }, "9": { name: "9 - البليدة", home: 750, desk: 520 }, "10": { name: "10 - البويرة", home: 800, desk: 520 }, "11": { name: "11 - تمنراست", home: 1600, desk: 1120 }, "12": { name: "12 - تبسة", home: 850, desk: 520 }, "13": { name: "13 - تلمسان", home: 700, desk: 520 }, "14": { name: "14 - تيارت", home: 750, desk: 520 }, "15": { name: "15 - تيزي وزو", home: 800, desk: 520 }, "16": { name: "16 - الجزائر", home: 650, desk: 470 }, "17": { name: "17 - الجلفة", home: 950, desk: 670 }, "18": { name: "18 - جيجل", home: 800, desk: 520 }, "19": { name: "19 - سطيف", home: 800, desk: 520 }, "20": { name: "20 - سعيدة", home: 750, desk: 570 }, "21": { name: "21 - سكيكدة", home: 800, desk: 520 }, "22": { name: "22 - سيدي بلعباس", home: 700, desk: 520 }, "23": { name: "23 - عنابة", home: 850, desk: 520 }, "24": { name: "24 - قالمة", home: 850, desk: 520 }, "25": { name: "25 - قسنطينة", home: 800, desk: 520 }, "26": { name: "26 - المدية", home: 750, desk: 520 }, "27": { name: "27 - مستغانم", home: 700, desk: 520 }, "28": { name: "28 - المسيلة", home: 900, desk: 570 }, "29": { name: "29 - معسكر", home: 700, desk: 520 }, "30": { name: "30 - ورقلة", home: 950, desk: 720 }, "31": { name: "31 - وهران", home: 400, desk: 370 }, "32": { name: "32 - البيض", home: 1000, desk: 670 }, "33": { name: "33 - إليزي", home: 1600, desk: 1120 }, "34": { name: "34 - برج بوعريريج", home: 800, desk: 520 }, "35": { name: "35 - بومرداس", home: 800, desk: 520 }, "36": { name: "36 - الطارف", home: 850, desk: 520 }, "37": { name: "37 - تندوف", home: 1400, desk: 1120 }, "38": { name: "38 - تسمسيلت", home: 750, desk: 520 }, "39": { name: "39 - الوادي", home: 950, desk: 720 }, "40": { name: "40 - خنشلة", home: 800, desk: 520 }, "41": { name: "41 - سوق أهراس", home: 800, desk: 520 }, "42": { name: "42 - تيبازة", home: 800, desk: 520 }, "43": { name: "43 - ميلة", home: 800, desk: 520 }, "44": { name: "44 - عين الدفلى", home: 750, desk: 520 }, "45": { name: "45 - النعامة", home: 1000, desk: 670 }, "46": { name: "46 - عين تموشنت", home: 650, desk: 520 }, "47": { name: "47 - غرداية", home: 950, desk: 670 }, "48": { name: "48 - غليزان", home: 750, desk: 520 }, "49": { name: "49 - تيميمون", home: 1400, desk: 970 }, "50": { name: "50 - برج باجي مختار", home: 1600, desk: 0 }, "51": { name: "51 - أولاد جلال", home: 950, desk: 670 }, "52": { name: "52 - بني عباس", home: 1200, desk: 970 }, "53": { name: "53 - عين صالح", home: 1600, desk: 1120 }, "54": { name: "54 - عين قزام", home: 1600, desk: 0 }, "55": { name: "55 - تقرت", home: 950, desk: 720 }, "56": { name: "56 - جانت", home: 1600, desk: 1120 }, "57": { name: "57 - المغير", home: 950, desk: 0 }, "58": { name: "58 - المنيعة", home: 950, desk: 720 }
         };
@@ -451,13 +458,6 @@
             }
             document.getElementById('total-price-display').innerText = (packagePrice + deliveryPrice) + ' دج';
         }
-
-        // ==========================================
-        // إعدادات ربط قاعدة بيانات Supabase
-        // ==========================================
-        const supabaseUrl = 'https://ywiqscllcgmwgnrqvkft.supabase.co';
-        const supabaseKey = 'sb_publishable_XUJFnK7CEM6gfNme28shlw_BdbWnw6V';
-        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
         async function submitOrder(event) {
             event.preventDefault(); 
