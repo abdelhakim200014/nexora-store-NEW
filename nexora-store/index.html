@@ -369,7 +369,7 @@
 
     <script>
         // ==========================================
-        // تعريف Supabase بشكل صحيح وفي النطاق العام (خارج أي دالة)
+        // تهيئة اتصال قاعدة بيانات Supabase في النطاق العام (Global Scope)
         // ==========================================
         const supabaseUrl = 'https://ywiqscllcgmwgnrqvkft.supabase.co';
         const supabaseKey = 'sb_publishable_XUJFnK7CEM6gfNme28shlw_BdbWnw6V';
@@ -423,6 +423,15 @@
             btn.classList.add('bg-custom-yellow', 'text-black', 'pulse-btn', 'shadow-md');
             btn.innerText = 'تم الاختيار ✓';
             calculateTotal();
+
+            // 📊 إرسال حدث AddToCart عند تغيير الباقات
+            const packageName = price === 3000 ? "قطعة واحدة" : (price === 8800 ? "3 قطع" : "قطعتان");
+            if (typeof fbq === 'function') {
+                fbq('track', 'AddToCart', { content_name: packageName, value: price, currency: 'DZD' });
+            }
+            if (typeof ttq !== 'undefined') {
+                ttq.track('AddToCart', { content_name: packageName, value: price, currency: 'DZD', quantity: 1 });
+            }
         }
 
         function updateWilayaPrices() {
@@ -464,6 +473,13 @@
             const submitBtn = document.getElementById('submit-btn');
             const errorMsg = document.getElementById('error-msg');
             
+            // 🛡️ حماية من الطلبات المكررة (منع الإرسال المتكرر خلال 5 دقائق)
+            const lastOrderTime = localStorage.getItem('last_order_time');
+            if (lastOrderTime && (Date.now() - parseInt(lastOrderTime)) < 300000) {
+                alert("تم إرسال طلبك مسبقاً! فريقنا سيتصل بك قريباً لتأكيده.");
+                return;
+            }
+
             submitBtn.innerHTML = `⏳ جاري معالجة الطلب... <span class="loader"></span>`;
             submitBtn.disabled = true;
             submitBtn.classList.remove('pulse-btn');
@@ -508,7 +524,8 @@
                     throw error;
                 }
 
-                // حالة النجاح
+                // حالة النجاح والحفظ في ذاكرة المتصفح لمنع السبام
+                localStorage.setItem('last_order_time', Date.now().toString());
                 document.getElementById('purchase-form').reset();
                 document.getElementById('delivery-options-container').style.display = "none";
                 document.getElementById('total-price-display').innerText = packagePriceStr + ' دج';
@@ -548,6 +565,16 @@
             document.getElementById('success-popup').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // 📊 تتبع حدث InitiateCheckout عند النقر والتوجه إلى فورم الطلب
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('a[href="#order-form"]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
+                    if (typeof ttq !== 'undefined') ttq.track('InitiateCheckout');
+                });
+            });
+        });
     </script>
 </body>
 </html>
