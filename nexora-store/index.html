@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <!-- تم استبدال رابط CDN بملف التصميم المحلي السريع -->
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -61,12 +60,11 @@
     !function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=i+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
     
-      // تم مسح العبارة العربية لكي لا تسبب خطأ في المتصفحات
       ttq.load('');
       ttq.page();
     }(window, document, 'ttq');
     </script>
-    </head>
+</head>
 <body class="text-gray-800 pb-24 relative">
 
     <a href="https://wa.me/213541607271" target="_blank" class="fixed bottom-20 left-4 md:bottom-6 md:left-6 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-2xl z-50 hover:bg-green-600 transition transform hover:scale-110 flex items-center justify-center">
@@ -299,17 +297,17 @@
             <form id="purchase-form" class="space-y-4" onsubmit="submitOrder(event)">
                 <input type="hidden" id="selected-package-price" value="3000">
 
-                <input type="text" id="cust-name" name="name" placeholder="👤 الاسم واللقب" class="w-full bg-gray-800/50 border border-gray-600 text-white p-3.5 rounded-xl outline-none" required minlength="3">
-                <input type="tel" id="cust-phone" name="phone" placeholder="📞 رقم الهاتف" pattern="^(05|06|07)[0-9]{8}$" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full bg-gray-800/50 border border-gray-600 text-white p-3.5 rounded-xl outline-none text-left dir-ltr font-bold text-lg" dir="ltr" required>
+                <input type="text" id="cust-name" name="name" placeholder="👤 الاسم واللقب" class="w-full bg-gray-800 border border-gray-600 text-white p-3.5 rounded-xl outline-none" required minlength="3">
+                <input type="tel" id="cust-phone" name="phone" placeholder="📞 رقم الهاتف" pattern="^(05|06|07)[0-9]{8}$" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full bg-gray-800 border border-gray-600 text-white p-3.5 rounded-xl outline-none text-left dir-ltr font-bold text-lg" dir="ltr" required>
                 
-                <select id="wilaya" name="wilaya" class="w-full bg-gray-800/50 border border-gray-600 text-white p-3.5 rounded-xl outline-none appearance-none" required onchange="updateWilayaPrices()">
+                <select id="wilaya" name="wilaya" class="w-full h-[54px] bg-gray-800 border border-gray-600 text-white px-3.5 rounded-xl outline-none" required onchange="updateWilayaPrices()">
                     <option value="" disabled selected>📍 اختر ولايتك</option>
                 </select>
 
-                <input type="text" id="cust-baladiya" name="baladiya" placeholder="🏢 البلدية الدقيقة" class="w-full bg-gray-800/50 border border-gray-600 text-white p-3.5 rounded-xl outline-none" required>
-                <input type="text" id="cust-address" name="address" placeholder="🏠 العنوان الكامل (الحي، الشارع...)" class="w-full bg-gray-800/50 border border-gray-600 text-white p-3.5 rounded-xl outline-none" required>
+                <input type="text" id="cust-baladiya" name="baladiya" placeholder="🏢 البلدية الدقيقة" class="w-full bg-gray-800 border border-gray-600 text-white p-3.5 rounded-xl outline-none" required>
+                <input type="text" id="cust-address" name="address" placeholder="🏠 العنوان الكامل (الحي، الشارع...)" class="w-full bg-gray-800 border border-gray-600 text-white p-3.5 rounded-xl outline-none" required>
 
-                <div class="bg-gray-800/50 p-4 rounded-xl border border-gray-600">
+                <div class="bg-gray-800 p-4 rounded-xl border border-gray-600">
                     <span class="block text-sm font-bold text-gray-300 mb-3">🎨 اللون</span>
                     <div class="flex gap-8">
                         <label class="flex items-center gap-3 cursor-pointer group"><input type="radio" name="product_color" value="أسود" class="peer sr-only" checked><div class="w-8 h-8 rounded-full border border-gray-500 bg-black peer-checked:border-custom-yellow peer-checked:ring-2 peer-checked:ring-custom-yellow"><span class="text-custom-yellow text-sm font-black hidden peer-checked:block text-center pt-1">✓</span></div><span class="text-white font-bold group-hover:text-custom-yellow">أسود ⚫</span></label>
@@ -317,7 +315,7 @@
                     </div>
                 </div>
 
-                <div class="bg-gray-800/50 p-4 rounded-xl border border-gray-600 transition-all duration-300" id="delivery-options-container" style="display: none;">
+                <div class="bg-gray-800 p-4 rounded-xl border border-gray-600 transition-all duration-300" id="delivery-options-container" style="display: none;">
                     <div class="space-y-3">
                         <label id="desk-option-label" class="flex items-center justify-between cursor-pointer p-3 bg-gray-900 rounded-lg border border-transparent has-[:checked]:border-custom-yellow">
                             <div class="flex items-center gap-3">
@@ -369,82 +367,81 @@
     </div>
 
     <script>
-        // ==========================================
-        // تهيئة اتصال قاعدة بيانات Supabase في النطاق العام (Global Scope)
-        // ==========================================
         const supabaseUrl = 'https://ywiqscllcgmwgnrqvkft.supabase.co';
         const supabaseKey = 'sb_publishable_XUJFnK7CEM6gfNme28shlw_BdbWnw6V';
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-       const shippingRates = {
-    "1": { name: "1 - أدرار", home: 1400, desk: 970 },
-    "2": { name: "2 - الشلف", home: 750, desk: 520 },
-    "3": { name: "3 - الأغواط", home: 950, desk: 670 },
-    "4": { name: "4 - أم البواقي", home: 800, desk: 520 },
-    "5": { name: "5 - باتنة", home: 800, desk: 520 },
-    "6": { name: "6 - بجاية", home: 800, desk: 520 },
-    "7": { name: "7 - بسكرة", home: 950, desk: 670 },
-    "8": { name: "8 - بشار", home: 1050, desk: 720 },
-    "9": { name: "9 - البليدة", home: 750, desk: 520 },
-    "10": { name: "10 - البويرة", home: 800, desk: 520 },
-    "11": { name: "11 - تمنراست", home: 1600, desk: 1120 },
-    "12": { name: "12 - تبسة", home: 850, desk: 520 },
-    "13": { name: "13 - تلمسان", home: 700, desk: 520 },
-    "14": { name: "14 - تيارت", home: 750, desk: 520 },
-    "15": { name: "15 - تيزي وزو", home: 800, desk: 520 },
-    "16": { name: "16 - الجزائر", home: 650, desk: 470 },
-    "17": { name: "17 - الجلفة", home: 950, desk: 670 },
-    "18": { name: "18 - جيجل", home: 800, desk: 520 },
-    "19": { name: "19 - سطيف", home: 800, desk: 520 },
-    "20": { name: "20 - سعيدة", home: 750, desk: 570 },
-    "21": { name: "21 - سكيكدة", home: 800, desk: 520 },
-    "22": { name: "22 - سيدي بلعباس", home: 700, desk: 520 },
-    "23": { name: "23 - عنابة", home: 850, desk: 520 },
-    "24": { name: "24 - قالمة", home: 850, desk: 520 },
-    "25": { name: "25 - قسنطينة", home: 800, desk: 520 },
-    "26": { name: "26 - المدية", home: 750, desk: 520 },
-    "27": { name: "27 - مستغانم", home: 700, desk: 520 },
-    "28": { name: "28 - المسيلة", home: 900, desk: 570 },
-    "29": { name: "29 - معسكر", home: 700, desk: 520 },
-    "30": { name: "30 - ورقلة", home: 950, desk: 720 },
-    "31": { name: "31 - وهران", home: 500, desk: 370 },
-    "32": { name: "32 - البيض", home: 1000, desk: 670 },
-    "33": { name: "33 - إليزي", home: 1600, desk: 1120 },
-    "34": { name: "34 - برج بوعريريج", home: 800, desk: 520 },
-    "35": { name: "35 - بومرداس", home: 800, desk: 520 },
-    "36": { name: "36 - الطارف", home: 850, desk: 520 },
-    "37": { name: "37 - تندوف", home: 1400, desk: 1120 },
-    "38": { name: "38 - تيسمسيلت", home: 750, desk: 520 },
-    "39": { name: "39 - الوادي", home: 950, desk: 720 },
-    "40": { name: "40 - خنشلة", home: 800, desk: 520 },
-    "41": { name: "41 - سوق أهراس", home: 800, desk: 520 },
-    "42": { name: "42 - تيبازة", home: 800, desk: 520 },
-    "43": { name: "43 - ميلة", home: 800, desk: 520 },
-    "44": { name: "44 - عين الدفلى", home: 750, desk: 520 },
-    "45": { name: "45 - النعامة", home: 1000, desk: 670 },
-    "46": { name: "46 - عين تموشنت", home: 650, desk: 520 },
-    "47": { name: "47 - غرداية", home: 950, desk: 670 },
-    "48": { name: "48 - غليزان", home: 750, desk: 520 },
-    "49": { name: "49 - تيميمون", home: 1400, desk: 970 },
-    "50": { name: "50 - برج باجي مختار", home: 1600, desk: 0 },
-    "51": { name: "51 - أولاد جلال", home: 950, desk: 670 },
-    "52": { name: "52 - بني عباس", home: 1200, desk: 970 },
-    "53": { name: "53 - عين صالح", home: 1600, desk: 1120 },
-    "54": { name: "54 - عين قزام", home: 1600, desk: 0 },
-    "55": { name: "55 - تقرت", home: 950, desk: 720 },
-    "56": { name: "56 - جانت", home: 1600, desk: 1120 },
-    "57": { name: "57 - المغير", home: 950, desk: 0 },
-    "58": { name: "58 - المنيعة", home: 950, desk: 720 }
-};
-
-        window.onload = function() {
-            const wilayaSelect = document.getElementById("wilaya");
-            for (const key in shippingRates) {
-                let option = document.createElement("option");
-                option.value = key; option.text = shippingRates[key].name;
-                wilayaSelect.appendChild(option);
-            }
+        const shippingRates = {
+            "1": { name: "01 - أدرار", home: 1400, desk: 970 },
+            "2": { name: "02 - الشلف", home: 750, desk: 520 },
+            "3": { name: "03 - الأغواط", home: 950, desk: 670 },
+            "4": { name: "04 - أم البواقي", home: 800, desk: 520 },
+            "5": { name: "05 - باتنة", home: 800, desk: 520 },
+            "6": { name: "06 - بجاية", home: 800, desk: 520 },
+            "7": { name: "07 - بسكرة", home: 950, desk: 670 },
+            "8": { name: "08 - بشار", home: 1050, desk: 720 },
+            "9": { name: "09 - البليدة", home: 750, desk: 520 },
+            "10": { name: "10 - البويرة", home: 800, desk: 520 },
+            "11": { name: "11 - تمنراست", home: 1600, desk: 1120 },
+            "12": { name: "12 - تبسة", home: 850, desk: 520 },
+            "13": { name: "13 - تلمسان", home: 700, desk: 520 },
+            "14": { name: "14 - تيارت", home: 750, desk: 520 },
+            "15": { name: "15 - تيزي وزو", home: 800, desk: 520 },
+            "16": { name: "16 - الجزائر", home: 650, desk: 470 },
+            "17": { name: "17 - الجلفة", home: 950, desk: 670 },
+            "18": { name: "18 - جيجل", home: 800, desk: 520 },
+            "19": { name: "19 - سطيف", home: 800, desk: 520 },
+            "20": { name: "20 - سعيدة", home: 750, desk: 570 },
+            "21": { name: "21 - سكيكدة", home: 800, desk: 520 },
+            "22": { name: "22 - سيدي بلعباس", home: 700, desk: 520 },
+            "23": { name: "23 - عنابة", home: 850, desk: 520 },
+            "24": { name: "24 - قالمة", home: 850, desk: 520 },
+            "25": { name: "25 - قسنطينة", home: 800, desk: 520 },
+            "26": { name: "26 - المدية", home: 750, desk: 520 },
+            "27": { name: "27 - مستغانم", home: 700, desk: 520 },
+            "28": { name: "28 - المسيلة", home: 900, desk: 570 },
+            "29": { name: "29 - معسكر", home: 700, desk: 520 },
+            "30": { name: "30 - ورقلة", home: 950, desk: 720 },
+            "31": { name: "31 - وهران", home: 500, desk: 370 },
+            "32": { name: "32 - البيض", home: 1000, desk: 670 },
+            "33": { name: "33 - إليزي", home: 1600, desk: 1120 },
+            "34": { name: "34 - برج بوعريريج", home: 800, desk: 520 },
+            "35": { name: "35 - بومرداس", home: 800, desk: 520 },
+            "36": { name: "36 - الطارف", home: 850, desk: 520 },
+            "37": { name: "37 - تندوف", home: 1400, desk: 1120 },
+            "38": { name: "38 - تيسمسيلت", home: 750, desk: 520 },
+            "39": { name: "39 - الوادي", home: 950, desk: 720 },
+            "40": { name: "40 - خنشلة", home: 800, desk: 520 },
+            "41": { name: "41 - سوق أهراس", home: 800, desk: 520 },
+            "42": { name: "42 - تيبازة", home: 800, desk: 520 },
+            "43": { name: "43 - ميلة", home: 800, desk: 520 },
+            "44": { name: "44 - عين الدفلى", home: 750, desk: 520 },
+            "45": { name: "45 - النعامة", home: 1000, desk: 670 },
+            "46": { name: "46 - عين تموشنت", home: 650, desk: 520 },
+            "47": { name: "47 - غرداية", home: 950, desk: 670 },
+            "48": { name: "48 - غليزان", home: 750, desk: 520 },
+            "49": { name: "49 - تيميمون", home: 1400, desk: 970 },
+            "50": { name: "50 - برج باجي مختار", home: 1600, desk: 0 },
+            "51": { name: "51 - أولاد جلال", home: 950, desk: 670 },
+            "52": { name: "52 - بني عباس", home: 1200, desk: 970 },
+            "53": { name: "53 - عين صالح", home: 1600, desk: 1120 },
+            "54": { name: "54 - عين قزام", home: 1600, desk: 0 },
+            "55": { name: "55 - تقرت", home: 950, desk: 720 },
+            "56": { name: "56 - جانت", home: 1600, desk: 1120 },
+            "57": { name: "57 - المغير", home: 950, desk: 0 },
+            "58": { name: "58 - المنيعة", home: 950, desk: 720 }
         };
+
+        // التعديل هنا: تنفيذ فوري للقائمة بدون تأخير لتظهر بشكل صحيح
+        (function initWilayaDropdown() {
+            const wilayaSelect = document.getElementById("wilaya");
+            if (!wilayaSelect) return;
+            let optionsHTML = '<option value="" disabled selected>📍 اختر ولايتك</option>';
+            for (const key in shippingRates) {
+                optionsHTML += `<option value="${key}">${shippingRates[key].name}</option>`;
+            }
+            wilayaSelect.innerHTML = optionsHTML;
+        })();
 
         function changeImage(element, index) {
             const mainImg = document.getElementById('main-product-image');
@@ -482,7 +479,6 @@
             btn.innerText = 'تم الاختيار ✓';
             calculateTotal();
 
-            // 📊 إرسال حدث AddToCart عند تغيير الباقات
             const packageName = price === 3000 ? "قطعة واحدة" : (price === 8800 ? "3 قطع" : "قطعتان");
             if (typeof fbq === 'function') {
                 fbq('track', 'AddToCart', { content_name: packageName, value: price, currency: 'DZD' });
@@ -496,14 +492,17 @@
             const selectedWilayaId = document.getElementById("wilaya").value;
             const deliveryContainer = document.getElementById("delivery-options-container");
             const deskOptionLabel = document.getElementById("desk-option-label");
-            if (!selectedWilayaId) { deliveryContainer.style.display = "none"; return; }
-            deliveryContainer.style.display = "block";
             
+            if (!selectedWilayaId) { 
+                deliveryContainer.style.display = "none"; 
+                return; 
+            }
+            
+            deliveryContainer.style.display = "block";
             const wilayaData = shippingRates[selectedWilayaId];
-            const wilayaNameOnly = wilayaData.name.split(" - ")[1]; 
-            document.getElementById("wilaya").options[document.getElementById("wilaya").selectedIndex].text = wilayaNameOnly;
 
             document.getElementById("home-price-display").innerText = wilayaData.home + " دج";
+            
             if (wilayaData.desk > 0) {
                 deskOptionLabel.style.display = "flex";
                 document.getElementById("desk-price-display").innerText = wilayaData.desk + " دج";
@@ -531,7 +530,6 @@
             const submitBtn = document.getElementById('submit-btn');
             const errorMsg = document.getElementById('error-msg');
             
-            // 🛡️ حماية من الطلبات المكررة (منع الإرسال المتكرر خلال 5 دقائق)
             const lastOrderTime = localStorage.getItem('last_order_time');
             if (lastOrderTime && (Date.now() - parseInt(lastOrderTime)) < 300000) {
                 alert("تم إرسال طلبك مسبقاً! فريقنا سيتصل بك قريباً لتأكيده.");
@@ -545,31 +543,35 @@
 
             try {
                 const packagePriceStr = document.getElementById('selected-package-price').value;
-                const packageName = packagePriceStr === "3000" ? "قطعة واحدة (55×40)" : (packagePriceStr === "8800" ? "3 قطع (55×40)" : "قطعتان (55×40)");
+                const productPrice = parseInt(packagePriceStr);
+                const packageName = productPrice === 3000 ? "قطعة واحدة (55×40)" : (productPrice === 8800 ? "3 قطع (55×40)" : "قطعتان (55×40)");
                 
                 let quantity = 1; 
-                if (packagePriceStr === "5800") quantity = 2;
-                else if (packagePriceStr === "8800") quantity = 3;
+                if (productPrice === 5800) quantity = 2;
+                else if (productPrice === 8800) quantity = 3;
 
-                const rawTotal = document.getElementById('total-price-display').innerText.replace(/[^\d]/g, '');
-                const finalTotal = parseInt(rawTotal);
-                const productPrice = parseInt(packagePriceStr);
-                const shippingPrice = finalTotal - productPrice;
-                
-                const selectedColor = document.querySelector('input[name="product_color"]:checked').value;
+                const selectedWilayaId = document.getElementById("wilaya").value;
                 const selectedDelivery = document.querySelector('input[name="delivery_type"]:checked').value;
+                
+                let shippingPrice = 0;
+                if (selectedWilayaId && shippingRates[selectedWilayaId]) {
+                    shippingPrice = selectedDelivery === "باب المنزل" ? shippingRates[selectedWilayaId].home : shippingRates[selectedWilayaId].desk;
+                }
+                
+                const finalTotal = productPrice + shippingPrice;
+                const selectedColor = document.querySelector('input[name="product_color"]:checked').value;
                 const formData = new FormData(document.getElementById('purchase-form'));
 
                 const orderData = {
                     customer_name: formData.get('name'),
                     customer_phone: formData.get('phone'),
-                    wilaya: document.getElementById('wilaya').options[document.getElementById('wilaya').selectedIndex].text,
+                    wilaya: shippingRates[selectedWilayaId].name, 
                     baladiya: formData.get('baladiya'),
                     address: formData.get('address'), 
                     offer_title: packageName,
                     color: selectedColor,
                     delivery_type: selectedDelivery,
-                    final_total: finalTotal,
+                    final_total: finalTotal, 
                     qty: quantity,
                     product_price: productPrice,
                     shipping_price: shippingPrice,
@@ -582,14 +584,12 @@
                     throw error;
                 }
 
-                // حالة النجاح والحفظ في ذاكرة المتصفح لمنع السبام
                 localStorage.setItem('last_order_time', Date.now().toString());
                 document.getElementById('purchase-form').reset();
                 document.getElementById('delivery-options-container').style.display = "none";
                 document.getElementById('total-price-display').innerText = packagePriceStr + ' دج';
                 document.getElementById('success-popup').classList.remove('hidden');
 
-                // إرسال حدث الشراء لفيسبوك بيكسل
                 if (typeof fbq === 'function') {
                     fbq('track', 'Purchase', {
                         value: finalTotal,
@@ -599,7 +599,6 @@
                     });
                 }
 
-                // إرسال حدث الشراء لتيك توك بيكسل
                 if (typeof ttq !== 'undefined') {
                     ttq.track('CompletePayment', {
                         content_name: packageName,
@@ -624,7 +623,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 📊 تتبع حدث InitiateCheckout عند النقر والتوجه إلى فورم الطلب
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('a[href="#order-form"]').forEach(btn => {
                 btn.addEventListener('click', () => {
